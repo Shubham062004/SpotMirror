@@ -47,7 +47,7 @@ df = pd.DataFrame(rows)
 if df.empty:
     raise RuntimeError("Dataset empty — API returned no valid data")
 
-output_path = "music_app/data/music_data.csv"
+output_path = "music-app/data/music_data.csv"
 df.to_csv(output_path, index=False)
 
 print(f"Dataset created successfully → {output_path}")

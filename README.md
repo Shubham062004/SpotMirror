@@ -1,100 +1,161 @@
-
 # 🎵 SpotMirror
 
-SpotMirror is an AI-powered music recommendation system that suggests songs based on user mood.  
-It integrates real-world music metadata with machine learning to deliver personalized, explainable recommendations.
+SpotMirror is a scalable, AI-powered music recommendation system that provides personalized song suggestions using multiple recommendation strategies including mood-based filtering, content similarity, collaborative filtering, and user preference learning.
+
+The system is built with a production-style backend architecture and is designed to support seamless API provider switching.
+
+---
+
+## ⚠️ API PROVIDER NOTE (IMPORTANT)
+
+At the time of development, **Spotify Web API access for new developer applications is under limited availability / maintenance**.
+
+👉 Therefore, **Last.fm API** is currently used as the primary source of music metadata.
+
+The backend is **API-agnostic by design**, and once Spotify API access is available, the system can be migrated to Spotify with **minimal code changes**.
 
 ---
 
 ## 🚀 Features
-- Mood-based music recommendations (happy, sad, calm, energetic)
-- Real-time data collection using Last.fm API
-- Machine learning pipeline for mood classification
-- Log-scaled popularity scoring for stable ranking
-- Command-line interface (CLI) for easy interaction
-- Clean, modular, production-style project structure
+
+### Recommendation Engines
+- Mood-based music recommendations
+- Content-based filtering using TF-IDF and cosine similarity
+- User-based collaborative filtering
+- Popularity-based ranking with log-scaled scoring
+- Persistent user preference learning
+
+### Backend
+- FastAPI-powered REST API
+- Clean Python package structure
+- Robust error handling and path-safe file access
+- Auto-generated Swagger/OpenAPI documentation
+
+### Frontend (Planned)
+- React-based user interface
+- Mood selection and recommendation display
+- Backend API integration
+- Minimal, clean UI for real-time interaction
 
 ---
 
 ## 🧠 Tech Stack
-- **Language:** Python
-- **ML:** Scikit-learn
-- **Data Processing:** Pandas
-- **API:** Last.fm API
-- **CLI:** argparse
-- **Config Management:** python-dotenv
+
+### Backend
+- Python
+- FastAPI
+- Pandas
+- Scikit-learn
+- python-dotenv
+- Last.fm API
+
+### Frontend (Planned)
+- React
+- Fetch API / Axios
+- CSS
 
 ---
 
 ## 📂 Project Structure
+
 ```
 
 SpotMirror/
-└── music_app/
-├── src/
-│   ├── main.py
-│   ├── collect_data.py
-│   ├── features.py
-│   ├── train_model.py
-│   └── recommender.py
+├── README.md
+├── music_app/
+│   ├── src/
+│   │   ├── **init**.py
+│   │   ├── api.py
+│   │   ├── main.py
+│   │   ├── recommender.py
+│   │   ├── content_recommender.py
+│   │   ├── collaborative_recommender.py
+│   │   ├── user_preferences.py
+│   │   ├── features.py
+│   │   └── train_model.py
+│   │
+│   ├── data/
+│   │   ├── music_data.csv
+│   │   └── user_preferences.json
+│   │
+│   ├── tests/
+│   ├── .env
+│   ├── .gitignore
+│   └── requirements.txt
 │
-├── data/
-│   └── music_data.csv
-│
-├── tests/
-├── .env
-├── .gitignore
-└── requirements.txt
+└── frontend/   # Planned React frontend
+
+```
+
+---
+
+## 🔑 Environment Setup
+
+Create a `.env` file inside `music_app/`:
+
+```
+
+LASTFM_API_KEY=your_lastfm_api_key_here
 
 ````
 
 ---
 
-## ▶️ How to Run
+## ▶️ Running the Backend
 
-### 1️⃣ Install dependencies
+### Install dependencies
 ```bash
 pip install -r music_app/requirements.txt
 ````
 
-### 2️⃣ Add API key
-
-Create `.env` inside `music_app/`:
-
-```
-LASTFM_API_KEY=your_api_key_here
-```
-
-### 3️⃣ Generate dataset
+### Generate dataset
 
 ```bash
 python music_app/src/collect_data.py
 ```
 
-### 4️⃣ Train model
+### Train the model
 
 ```bash
 python music_app/src/train_model.py
 ```
 
-### 5️⃣ Get recommendations
+### Start FastAPI server
 
 ```bash
-python music_app/src/main.py --mood happy --top 5
+uvicorn music_app.src.api:app --reload
+```
+
+Open Swagger API documentation:
+
+```
+http://127.0.0.1:8000/docs
 ```
 
 ---
 
-## 📈 Future Improvements
+## 🧠 Machine Learning Approach
 
-* Content-based and collaborative filtering
-* REST API using FastAPI
-* React frontend
-* User preference learning
-* Model performance tuning
+* Music metadata is mapped to mood labels
+* Feature engineering includes log-scaled popularity metrics
+* Baseline classification models validate pipeline correctness
+* Content similarity uses TF-IDF vectorization
+* Collaborative filtering is based on cosine similarity
+* User preferences are stored and updated persistently
+
+---
+
+## 🔄 Future Enhancements
+
+* Migration from Last.fm API to Spotify Web API
+* Hybrid recommendation model
+* Full React frontend implementation
+* User authentication and profiles
+* Deployment of backend and frontend
+* Performance optimization and caching
 
 ---
 
 ## 👤 Author
 
-Shubham Kumar Chaurasia
+**Shubham Kumar Chaurasia**

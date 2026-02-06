@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-PREF_FILE = Path("music_app/data/user_preferences.json")
+PREF_FILE = Path("music-app/data/user_preferences.json")
 
 class UserPreferenceStore:
     def __init__(self):
