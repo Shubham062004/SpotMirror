@@ -1,6 +1,5 @@
 import argparse
-from recommender import recommend_songs
-
+from music_app.src.recommender import recommend_songs
 
 def parse_args():
     parser = argparse.ArgumentParser(

@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-DATA_PATH = "music-app/data/music_data.csv"
+DATA_PATH = "music_app/data/music_data.csv"
 
 class ContentBasedRecommender:
     def __init__(self):

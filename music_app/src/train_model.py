@@ -4,7 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from features import build_features
 
-DATA_PATH = "music-app/data/music_data.csv"
+DATA_PATH = "music_app/data/music_data.csv"
 
 df = build_features(DATA_PATH)
 
