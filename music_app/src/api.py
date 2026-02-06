@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-
+from fastapi.middleware.cors import CORSMiddleware
 from music_app.src.recommender import recommend_songs
 from music_app.src.content_recommender import ContentBasedRecommender
 from music_app.src.collaborative_recommender import (
@@ -51,3 +51,11 @@ def collaborative_recommendation(user_id: str, top: int = 5):
 def update_preference(user_id: str, mood: str, weight: float = 1.0):
     preference_store.update_preference(user_id, mood, weight)
     return {"message": "Preference updated"}
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
