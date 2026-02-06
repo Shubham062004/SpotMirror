@@ -30,7 +30,7 @@ It integrates real-world music metadata with machine learning to deliver persona
 ```
 
 SpotMirror/
-└── music-app/
+└── music_app/
 ├── src/
 │   ├── main.py
 │   ├── collect_data.py
@@ -54,12 +54,12 @@ SpotMirror/
 
 ### 1️⃣ Install dependencies
 ```bash
-pip install -r music-app/requirements.txt
+pip install -r music_app/requirements.txt
 ````
 
 ### 2️⃣ Add API key
 
-Create `.env` inside `music-app/`:
+Create `.env` inside `music_app/`:
 
 ```
 LASTFM_API_KEY=your_api_key_here
@@ -68,19 +68,19 @@ LASTFM_API_KEY=your_api_key_here
 ### 3️⃣ Generate dataset
 
 ```bash
-python music-app/src/collect_data.py
+python music_app/src/collect_data.py
 ```
 
 ### 4️⃣ Train model
 
 ```bash
-python music-app/src/train_model.py
+python music_app/src/train_model.py
 ```
 
 ### 5️⃣ Get recommendations
 
 ```bash
-python music-app/src/main.py --mood happy --top 5
+python music_app/src/main.py --mood happy --top 5
 ```
 
 ---

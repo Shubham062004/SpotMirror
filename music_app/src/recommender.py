@@ -1,7 +1,7 @@
 import pandas as pd
 import math
 
-DATA_PATH = "music-app/data/music_data.csv"
+DATA_PATH = "music_app/data/music_data.csv"
 
 def popularity_score(listeners: int) -> float:
     """
