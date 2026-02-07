@@ -1,24 +1,28 @@
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import MoodBar from "../components/MoodBar";
-import PlaylistGrid from "../components/PlaylistGrid";
+import TopMixGrid from "../components/TopMixGrid";
+import RecentlyPlayed from "../components/RecentlyPlayed";
+import Recommendations from "../components/Recommendations";
 import PlayerBar from "../components/PlayerBar";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="flex h-screen bg-background-dark text-white">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
 
-      <main className="flex-1 flex flex-col overflow-hidden">
+      <main className="flex-1 overflow-y-auto pb-24">
         <Header />
 
-        <div className="flex-1 overflow-y-auto px-8 pb-32">
-          <MoodBar />
-          <PlaylistGrid />
+        <div className="px-8 py-6 space-y-10">
+          <TopMixGrid />
+          <RecentlyPlayed />
+          <Recommendations />
         </div>
       </main>
 
       <PlayerBar />
     </div>
   );
-}
+};
+
+export default Home;
