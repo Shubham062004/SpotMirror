@@ -56,38 +56,6 @@ The backend is **API-agnostic by design**, and once Spotify API access is availa
 
 ---
 
-## 📂 Project Structure
-
-```
-
-SpotMirror/
-├── README.md
-├── music_app/
-│   ├── src/
-│   │   ├── **init**.py
-│   │   ├── api.py
-│   │   ├── main.py
-│   │   ├── recommender.py
-│   │   ├── content_recommender.py
-│   │   ├── collaborative_recommender.py
-│   │   ├── user_preferences.py
-│   │   ├── features.py
-│   │   └── train_model.py
-│   │
-│   ├── data/
-│   │   ├── music_data.csv
-│   │   └── user_preferences.json
-│   │
-│   ├── tests/
-│   ├── .env
-│   ├── .gitignore
-│   └── requirements.txt
-│
-└── frontend/   # Planned React frontend
-
-```
-
----
 
 ## 🔑 Environment Setup
 
